@@ -1,0 +1,51 @@
+{
+  "name": "node-red-contrib-movehub",
+  "version": "0.0.1",
+  "description": "Node-RED Nodes to control the Lego Boost Move Hub",
+  "main": "none",
+  "scripts": {
+    "test": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hobbyquaker/node-red-contrib-movehub.git"
+  },
+  "keywords": [
+    "node-red",
+    "lego",
+    "boost",
+    "move",
+    "hub",
+    "robotics",
+    "ble",
+    "bluetooth"
+  ],
+  "author": "Sebastian Raff <hq@ccu.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hobbyquaker/node-red-contrib-movehub/issues"
+  },
+  "homepage": "https://github.com/hobbyquaker/node-red-contrib-movehub#readme",
+  "xo": {
+    "space": 4
+  },
+  "devDependencies": {
+    "eslint-plugin-html": "latest",
+    "xo": "latest"
+  },
+  "dependencies": {
+    "movehub": "^0.1.0"
+  },
+  "node-red": {
+    "nodes": {
+      "movehub-config": "nodes/movehub-config.js",
+      "movehub-motor": "nodes/movehub-motor.js",
+      "movehub-led": "nodes/movehub-led.js",
+      "movehub-distance": "nodes/movehub-distance.js",
+      "movehub-rotation": "nodes/movehub-rotation.js",
+      "movehub-color": "nodes/movehub-color.js",
+      "movehub-tilt": "nodes/movehub-tilt.js"
+
+    }
+  }
+}

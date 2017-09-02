@@ -1,0 +1,53 @@
+<script type="text/javascript">
+    RED.nodes.registerType('movehub-rotation', {
+        category: 'movehub',
+        color: '#C0DEED',
+        inputs: 0,
+        outputs: 1,
+        defaults: {
+            hub: {
+                value: '',
+                type: 'movehub-config',
+                required: true
+            },
+            name: {
+                value: ''
+            },
+            port: {
+                value: 'A',
+                required: true
+            }
+        },
+        label: function () {
+            return this.name || 'rotation';
+        },
+        icon: 'movehub-rotation.png',
+        paletteLabel: 'rotation'
+    });
+</script>
+
+<script type="text/x-red" data-template-name="movehub-rotation">
+    <div class="form-row">
+        <label for="node-input-hub"><i class="icon-bookmark"></i> Hub</label>
+        <input type="text" id="node-input-hub">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-bookmark"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-port"><i class="icon-bookmark"></i> Port</label>
+        <select id="node-input-port">
+            <option>A</option>
+            <option>B</option>
+            <option>AB</option>
+            <option>C</option>
+            <option>D</option>
+        </select>
+    </div>
+
+</script>
+
+<script type="text/x-red" data-help-name="movehub-rotation">
+    <p></p>
+</script>

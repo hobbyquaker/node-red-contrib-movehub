@@ -1,0 +1,60 @@
+<script type="text/javascript">
+    RED.nodes.registerType('movehub-config', {
+        category: 'config',
+        defaults: {
+            mac: {value: '', required: true}
+        },
+        credentials: {
+
+        },
+        label: function () {
+            return this.mac;
+        },
+        oneditprepare: function () {
+            var nodeId = this.id;
+
+            discoverHubs(nodeId);
+
+            $('#movehub-discover').button().click(() => {
+                discoverHubs(nodeId);
+            });
+
+            $('#node-config-select-hubs').change(function () {
+                $('#node-config-input-mac').val($(this).val());
+                $(this).val('');
+            });
+
+        }
+    });
+
+    function discoverHubs(nodeId) {
+        $.getJSON('movehub-discover/?id=' + nodeId + '&mac=' + $('#node-config-input-mac').val(), function (data) {
+            console.log(data);
+            $('#node-config-select-hubs').html(`<option value="">Select</option>`);
+            Object.keys(data.hubs).forEach(mac => {
+                $('#node-config-select-hubs').append(`<option value="${mac}">${mac}</option>`);
+            });
+        });
+    }
+</script>
+
+<script type="text/x-red" data-template-name="movehub-config">
+    <div class="form-row">
+        <label for="node-config-select-hubs"><i class="icon-bookmark"></i> Hubs</label>
+        <select id="node-config-select-hubs">
+        </select>
+        <button id="movehub-discover">Discover</button>
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-mac"><i class="icon-bookmark"></i> MAC</label>
+        <input type="text" id="node-config-input-mac" disabled>
+    </div>
+
+    <div class="form-row">
+        <label for="movehub-state"><i class="icon-bookmark"></i> Connection</label>
+        <span id="movehub-state"></span>
+    </div>
+    <div class="form-row">
+
+    </div>
+</script>

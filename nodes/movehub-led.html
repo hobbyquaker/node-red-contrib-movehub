@@ -1,0 +1,40 @@
+<script type="text/javascript">
+    RED.nodes.registerType('movehub-led', {
+        category: 'movehub',
+        color: '#C0DEED',
+        inputs: 1,
+        outputs: 0,
+        defaults: {
+            hub: {
+                value: '',
+                type: 'movehub-config',
+                required: true
+            },
+            name: {
+                value: ''
+            }
+        },
+        label: function () {
+            return this.name || 'led';
+        },
+        icon: 'movehub-led.png',
+        paletteLabel: 'led'
+    });
+</script>
+
+<script type="text/x-red" data-template-name="movehub-led">
+    <div class="form-row">
+        <label for="node-input-hub"><i class="icon-bookmark"></i> Hub</label>
+        <input type="text" id="node-input-hub">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-bookmark"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+
+
+</script>
+
+<script type="text/x-red" data-help-name="movehub-led">
+    <p></p>
+</script>
