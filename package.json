@@ -35,7 +35,7 @@
     "xo": "latest"
   },
   "dependencies": {
-    "movehub": "^0.2.0"
+    "movehub": "^0.3.0"
   },
   "node-red": {
     "nodes": {
