@@ -4,7 +4,7 @@
   "description": "Node-RED Nodes to control the Lego Boost Move Hub",
   "main": "none",
   "scripts": {
-    "test": "xo"
+    "test": "camo-purge ; xo"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "space": 4
   },
   "devDependencies": {
+    "camo-purge": "latest",
     "eslint-plugin-html": "latest",
     "xo": "latest"
   },
@@ -45,7 +46,6 @@
       "movehub-rotation": "nodes/movehub-rotation.js",
       "movehub-color": "nodes/movehub-color.js",
       "movehub-tilt": "nodes/movehub-tilt.js"
-
     }
   }
 }
