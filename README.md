@@ -4,11 +4,11 @@
 [![Dependency Status](https://img.shields.io/gemnasium/hobbyquaker/node-red-contrib-movehub.svg?maxAge=2592000)](https://gemnasium.com/github.com/hobbyquaker/node-red-contrib-movehub)
 [![Build Status](https://travis-ci.org/hobbyquaker/node-red-contrib-movehub.svg?branch=master)](https://travis-ci.org/hobbyquaker/node-red-contrib-movehub)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-[[![License][mit-badge]][mit-url]
+[![License][mit-badge]][mit-url]
 
 > Node-RED Nodes to control LEGO Boost 🤖 🐱 🎸 🚚
 
-** WORK IN PROGRESS. UNFINISHED AND PROBABLY FULL OF BUGS **
+**WORK IN PROGRESS. UNFINISHED AND PROBABLY FULL OF BUGS**
 
 These nodes connect via Bluetooth to LEGO Boost's Move Hub and can ...
 
