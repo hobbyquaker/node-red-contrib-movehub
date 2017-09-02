@@ -8,7 +8,6 @@ module.exports = function (RED) {
         node.users = {};
 
         this.register = function (moveHubNode) {
-            console.log('register', moveHubNode.id);
             node.users[moveHubNode.id] = moveHubNode;
         };
 
@@ -21,8 +20,11 @@ module.exports = function (RED) {
 
         movehub.on('ble-ready', status => {
             console.log('movehub ble-ready', status);
-            if (status) {
+            this.bleStatus = status;
+            if (this.bleStatus) {
                 this.setStatus('ble-ready');
+            } else {
+                this.setStatus('ble-missing');
             }
         });
 
@@ -38,13 +40,16 @@ module.exports = function (RED) {
         };
 
         this.events = function () {
-            console.log('events!');
             this.boost.on('connect', () => {
                 this.setStatus('connect');
             });
 
             this.boost.on('disconnect', () => {
-                console.log(this.mac, 'disconnected');
+                if (this.bleStatus) {
+                    this.setStatus('ble-ready');
+                } else {
+                    this.setStatus('ble-missing');
+                }
             });
 
             this.boost.on('distance', d => {
@@ -64,15 +69,14 @@ module.exports = function (RED) {
             });
         };
 
-        if (this.mac && !this.boost) {
+        if (this.bleStatus && this.mac && !this.boost) {
             this.connect(this.mac);
         }
 
         movehub.on('hub-found', hub => {
             console.log('movehub hub-found', hub.address, this.mac);
             hubs[hub.address] = hub;
-            // Console.log('this.mac', this.mac);
-            if (hub.address === this.mac) {
+            if (hub.address === this.mac && !this.boost) {
                 this.connect(this.mac);
             }
         });
@@ -146,14 +150,5 @@ module.exports = function (RED) {
         }));
     });
 
-    RED.httpAdmin.get('/movehub-connect', (req, res) => {
-        console.log('movehub-connect', req.query);
-        res.status(200).send(JSON.stringify({
-
-        }));
-    });
-
-    RED.nodes.registerType('movehub-config', MovehubConfigNode, {
-
-    });
+    RED.nodes.registerType('movehub-config', MovehubConfigNode, {});
 };
