@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('movehub-motor', {
+    RED.nodes.registerType('movehub-motor-multi', {
         category: 'movehub',
         color: '#C0DEED',
         inputs: 1,
@@ -13,28 +13,26 @@
             name: {
                 value: ''
             },
-            port: {
-                value: 'A'
-            },
-            mode: {
-                value: 'time'
-            },
             angle: {
                 value: 0
             },
             time: {
                 value: 0
             },
-            dc: {
+            dca: {
+                value: 100,
+                required: true
+            },
+            dcb: {
                 value: 100,
                 required: true
             }
         },
         label: function () {
-            return this.name || 'motor';
+            return this.name || 'motor-multi';
         },
         icon: 'movehub-motor.png',
-        paletteLabel: 'motor',
+        paletteLabel: 'motor-multi',
         oneditprepare: function () {
             $('#node-input-port').val(this.port);
             $('#node-input-mode').change(function () {
@@ -60,10 +58,9 @@
             }
         }
     });
-
 </script>
 
-<script type="text/x-red" data-template-name="movehub-motor">
+<script type="text/x-red" data-template-name="movehub-motor-multi">
     <div class="form-row">
         <label for="node-input-hub"><i class="icon-bookmark"></i> Hub</label>
         <input type="text" id="node-input-hub">
@@ -103,12 +100,17 @@
     </div>
 
     <div class="form-row">
-        <label for="node-input-dc"><i class="icon-bookmark"></i> DutyCycle</label>
-        <input type="number" min="-100" max="100" step="1" id="node-input-dc">
+        <label for="node-input-dca"><i class="icon-bookmark"></i> DutyCycle A</label>
+        <input type="number" min="-100" max="100" step="1" id="node-input-dca">
+    </div>
+
+     <div class="form-row">
+        <label for="node-input-dcb"><i class="icon-bookmark"></i> DutyCycle B</label>
+        <input type="number" min="-100" max="100" step="1" id="node-input-dcb">
     </div>
 
 </script>
 
-<script type="text/x-red" data-help-name="movehub-motor">
+<script type="text/x-red" data-help-name="movehub-motor-multi">
     <p></p>
 </script>
