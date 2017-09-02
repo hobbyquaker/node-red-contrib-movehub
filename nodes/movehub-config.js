@@ -18,6 +18,10 @@ module.exports = function (RED) {
 
         this.mac = config.mac;
 
+        movehub.on('error', err => {
+            console.log(err);
+        });
+
         movehub.on('ble-ready', status => {
             console.log('movehub ble-ready', status);
             this.bleStatus = status;
@@ -106,7 +110,7 @@ module.exports = function (RED) {
                     s = {
                         fill: 'yellow',
                         shape: 'ring',
-                        text: 'bluetooth ready'
+                        text: 'searching hub'
                     };
                     break;
                 case 'connect':
