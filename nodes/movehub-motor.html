@@ -110,5 +110,21 @@
 </script>
 
 <script type="text/x-red" data-help-name="movehub-motor">
-    <p></p>
+    <p>
+        Control a motor. Options:
+        <ul>
+            <li>
+                Port - the motor port. Possible values "A", "B", "C" or "D"
+            </li>
+            <li>
+                Mode - Chooses if the motor is turned for a specific angle or a specific time.
+            </li>
+            <li>
+                DutyCycle value controls the motor power/torque percentage. To do counterclockwise rotation use a
+                negative DutyCycle. Value range from -100 to 100.
+            </li>
+        </ul>
+        You can override all options if you put them as attributes in the message objevt. Attribute names are "port",
+        "time", "angle" and "dc".
+    </p>
 </script>

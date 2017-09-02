@@ -8,8 +8,6 @@
 
 > Node-RED Nodes to control LEGO Boost 🤖 🐱 🎸 🚚
 
-**WORK IN PROGRESS. UNFINISHED AND PROBABLY FULL OF BUGS**
-
 These nodes connect via Bluetooth to LEGO Boost's Move Hub and can ...
 
 * control the motors
