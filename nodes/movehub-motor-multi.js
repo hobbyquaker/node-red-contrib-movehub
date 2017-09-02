@@ -14,7 +14,7 @@ module.exports = function (RED) {
             const dca = msg.dca || n.dca;
             const dcb = msg.dcb || n.dcb;
 
-            console.log(`port ${port} angle ${angle} time ${time} dc ${dc}`);
+            console.log(`port ${port} angle ${angle} time ${time} dca ${dca} dcb ${dcb}`);
             if (angle && angle !== 0) {
                 this.boost.motorAngleMulti(angle, dca, dcb);
             } else if (time && time !== 0) {
