@@ -1,5 +1,4 @@
 module.exports = function (RED) {
-
     const movehub = require('movehub');
     const hubs = {};
 
@@ -27,7 +26,7 @@ module.exports = function (RED) {
             }
         });
 
-        this.connect = function(mac) {
+        this.connect = function (mac) {
             movehub.connect(mac, (err, boost) => {
                 if (err) {
                     console.log('movehub connect err', err);
@@ -69,11 +68,10 @@ module.exports = function (RED) {
             this.connect(this.mac);
         }
 
-
         movehub.on('hub-found', hub => {
             console.log('movehub hub-found', hub.address, this.mac);
             hubs[hub.address] = hub;
-            //console.log('this.mac', this.mac);
+            // Console.log('this.mac', this.mac);
             if (hub.address === this.mac) {
                 this.connect(this.mac);
             }
@@ -129,7 +127,7 @@ module.exports = function (RED) {
                     };
             }
 
-            Object.keys(node.users).forEach(function (id) {
+            Object.keys(node.users).forEach(id => {
                 node.users[id].status(s);
             });
         };
@@ -141,22 +139,21 @@ module.exports = function (RED) {
         });
     }
 
-    RED.httpAdmin.get('/movehub-discover', function (req, res) {
+    RED.httpAdmin.get('/movehub-discover', (req, res) => {
         console.log('movehub-discover', req.query);
         res.status(200).send(JSON.stringify({
             hubs
         }));
     });
 
-    RED.httpAdmin.get('/movehub-connect', function (req, res) {
+    RED.httpAdmin.get('/movehub-connect', (req, res) => {
         console.log('movehub-connect', req.query);
         res.status(200).send(JSON.stringify({
-
 
         }));
     });
 
     RED.nodes.registerType('movehub-config', MovehubConfigNode, {
-        
+
     });
 };

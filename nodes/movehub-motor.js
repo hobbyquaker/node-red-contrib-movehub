@@ -13,7 +13,6 @@ module.exports = function (RED) {
             const time = msg.time || n.time;
             const dc = msg.dc || n.dc;
 
-
             console.log(`port ${port} angle ${angle} time ${time} dc ${dc}`);
             if (angle && angle !== 0) {
                 this.boost.motorAngle(port, angle, dc);
