@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-movehub",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Node-RED Nodes to control the Lego Boost Move Hub",
   "main": "none",
   "scripts": {
@@ -35,7 +35,7 @@
     "xo": "latest"
   },
   "dependencies": {
-    "movehub": "^0.3.0"
+    "movehub": "^0.3.1"
   },
   "node-red": {
     "nodes": {
